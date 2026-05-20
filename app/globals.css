@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-outfit: var(--font-outfit-var);
+  --font-cormorant: var(--font-cormorant-var);
+
+  --color-brand-pink: #ec4899;
+  --color-brand-pink-light: #f9a8d4;
+  --color-brand-pink-pale: #fce7f3;
+  --color-brand-pink-dark: #be185d;
+  --color-brand-green: #baceb0;
+  --color-brand-green-light: #f0f7ee;
+  --color-brand-black: #0a0a0a;
+  --color-brand-gray: #6b7280;
+  --color-brand-off-white: #fdf9fb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
