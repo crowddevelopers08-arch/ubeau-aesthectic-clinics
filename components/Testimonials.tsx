@@ -2,19 +2,19 @@ import FadeUp from './FadeUp'
 
 const testimonials = [
   {
-    quote: '"My pigmentation has reduced dramatically after just three sessions. The team at UBÊAU is incredibly professional — I\'ve never felt more confident in my skin."',
-    name: 'Priya M.',
-    meta: 'Bright Skin & Pigmentation Protocol · Bhubaneswar',
+    quote: '"I recently got a Hydrafacial done at Ubeau Clinic, and I absolutely loved the experience! The staff was super professional and made me feel really comfortable throughout the session. The facial left my skin glowing, clean, and hydrated. The clinic is well-maintained, and the overall vibe is very relaxing. Definitely recommend it for anyone looking to pamper their skin!"',
+    name: 'Deepsikha Mishra',
+    meta: 'Hydrafacial · UBÊAU Clinic',
   },
   {
-    quote: '"After years of struggling with acne scars, the UBÊAU Acne Control Protocol gave me results I genuinely didn\'t think were possible. Absolutely transformed."',
-    name: 'Rohan D.',
-    meta: 'Acne Control & Skin Repair Protocol · Cuttack',
+    quote: '"Ubeau — the name itself reflects uniqueness and expertise in skin care. I truly enjoyed the warm atmosphere and the exceptional treatment I received. Dr. Sampada is highly skilled and offers the best advice tailored to my skin\'s needs. I underwent the SkinPen treatment here, and it was completely painless, with every step of the procedure followed meticulously."',
+    name: 'Srujani Nayak',
+    meta: 'SkinPen Treatment · UBÊAU Clinic',
   },
   {
-    quote: '"The luxury experience combined with genuinely effective treatments sets UBÊAU apart. My skin has never felt so hydrated and healthy. This is real skincare."',
-    name: 'Sneha R.',
-    meta: 'Repair & Heal Protocol · Bhubaneswar',
+    quote: '"Wow! I visited the clinic today and it was so soothing. I got a very positive vibe from there. The hospitality was top notch! The ambience, the counselling was splendid and up to the mark! People of Odisha will now be getting hands on the world class products and treatments. Do pay a visit and you won\'t regret."',
+    name: 'Mahadev Mohapatra',
+    meta: 'UBÊAU Clinic · Bhubaneswar',
   },
 ]
 
