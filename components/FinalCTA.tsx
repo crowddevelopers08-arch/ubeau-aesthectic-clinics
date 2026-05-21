@@ -26,13 +26,13 @@ export default function FinalCTA() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5">
           <Link
-            href="tel:7340020073"
+            href="#consultation-form"
             className="inline-block bg-brand-pink text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-[2.6rem] py-4 border-2 border-brand-pink no-underline font-medium transition-all duration-300 hover:bg-brand-pink-dark hover:border-brand-pink-dark"
           >
             Book Your Consultation
           </Link>
           <Link
-            href="https://maps.google.com/?q=Anuj+Time+Square+Saheed+Nagar+Bhubaneswar"
+            href="https://maps.app.goo.gl/Uwm2WB3WKumA9dHp7"
             target="_blank"
             className="inline-block bg-transparent text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-[2.6rem] py-4 border-2 border-white/42 no-underline font-medium transition-all duration-300 hover:border-brand-pink hover:text-brand-pink-light"
           >

@@ -74,7 +74,7 @@ export default function Hero() {
               style={heroIn(1.0)}
             >
               <Link
-                href="tel:7340020073"
+                href="#consultation-form"
                 className="inline-block text-center bg-brand-pink text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-brand-pink no-underline font-medium transition-all duration-300 hover:bg-brand-pink-dark hover:border-brand-pink-dark"
               >
                 Book Consultation
@@ -91,6 +91,7 @@ export default function Hero() {
           {/* Right — booking form */}
           <div style={heroIn(0.6)}>
             <div
+              id="consultation-form"
               className="border border-white/15 p-7 sm:p-9"
               style={{ background: 'rgba(10,8,5,0.55)', backdropFilter: 'blur(18px)' }}
             >

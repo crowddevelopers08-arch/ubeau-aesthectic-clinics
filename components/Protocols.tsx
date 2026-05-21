@@ -133,7 +133,7 @@ export default function Protocols() {
                 </ul>
 
                 <Link
-                  href="tel:7340020073"
+                  href="#consultation-form"
                   className="inline-block font-outfit text-[0.68rem] tracking-[0.18em] uppercase text-brand-pink border-b border-brand-pink pb-[2px] no-underline font-medium transition-colors duration-300 hover:text-brand-pink-light hover:border-brand-pink-light"
                 >
                   {p.cta}

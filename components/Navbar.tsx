@@ -65,7 +65,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* CTA */}
             <Link
-              href="tel:7340020073"
+              href="#consultation-form"
               className="shrink-0 bg-brand-pink text-white font-outfit tracking-[0.12em] uppercase no-underline font-medium transition-all duration-300 hover:bg-brand-pink-dark text-[0.65rem] px-5 py-2.5 sm:text-[0.7rem] sm:px-7 sm:py-3"
             >
               <span className="hidden sm:inline">Book Consultation</span>
