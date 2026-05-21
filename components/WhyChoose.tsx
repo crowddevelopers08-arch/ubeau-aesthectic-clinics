@@ -25,30 +25,28 @@ const cards = [
 
 export default function WhyChoose() {
   return (
-    <section id="why" className="bg-white px-20 py-32 max-lg:px-6 max-lg:py-20">
+    <section id="why" className="bg-white px-4 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-32">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-[26px] h-px bg-brand-pink shrink-0" />
-        <span className="font-outfit text-[0.65rem] tracking-[0.34em] uppercase text-brand-pink font-medium">
+        <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+        <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
           Why Choose UBÊAU
         </span>
       </div>
-      <h2 className="font-cormorant text-[clamp(2.2rem,3.5vw,3.6rem)] font-light leading-[1.15] text-brand-black mb-16">
-        Where <em className="italic text-brand-pink">Science</em> Meets Luxury
+      <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-light leading-[1.15] text-brand-black mb-10 sm:mb-16">
+        Why Choose <em className="italic text-brand-pink">UBÊAU</em>
       </h2>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[4px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-1">
         {cards.map((card, i) => (
           <FadeUp key={i} delay={i * 120}>
-            <div className="group relative overflow-hidden bg-white p-[3.2rem] border border-brand-green/40 transition-all duration-400 hover:bg-[#fdf4f9] hover:border-brand-pink/18 cursor-default max-lg:p-8">
-              {/* Animated top border */}
+            <div className="group relative overflow-hidden bg-white p-7 sm:p-10 lg:p-[3.2rem] border border-brand-green/40 transition-all duration-300 hover:bg-[#fdf6e8] hover:border-brand-pink/20 cursor-default h-full">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-pink scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500" />
-              <p className="font-outfit text-[0.58rem] tracking-[0.3em] uppercase text-brand-pink font-medium mb-[1.3rem]">
+              <p className="font-outfit text-[0.62rem] tracking-[0.26em] uppercase text-brand-pink font-semibold mb-4">
                 {card.cat}
               </p>
-              <h3 className="font-cormorant text-[1.6rem] font-normal text-brand-black leading-[1.28] mb-[0.9rem]">
+              <h3 className="font-outfit text-[1.25rem] sm:text-[1.45rem] lg:text-[1.6rem] font-semibold text-brand-black leading-[1.28] mb-3 sm:mb-4">
                 {card.title}
               </h3>
-              <p className="font-outfit text-[0.88rem] font-light leading-[1.95] text-brand-black/58">
+              <p className="font-outfit text-sm sm:text-[0.92rem] font-light leading-[1.85] text-brand-black/75">
                 {card.desc}
               </p>
             </div>

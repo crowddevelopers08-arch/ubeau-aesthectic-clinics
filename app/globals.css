@@ -2,17 +2,69 @@
 
 @theme inline {
   --font-outfit: var(--font-outfit-var);
-  --font-cormorant: var(--font-cormorant-var);
 
-  --color-brand-pink: #ec4899;
-  --color-brand-pink-light: #f9a8d4;
-  --color-brand-pink-pale: #fce7f3;
-  --color-brand-pink-dark: #be185d;
-  --color-brand-green: #baceb0;
-  --color-brand-green-light: #f0f7ee;
-  --color-brand-black: #0a0a0a;
-  --color-brand-gray: #6b7280;
-  --color-brand-off-white: #fdf9fb;
+  /* Logo gold — primary brand accent */
+  --color-brand-pink: #b88532;
+  --color-brand-pink-light: #d4a655;
+  --color-brand-pink-pale: #fdf3e3;
+  --color-brand-pink-dark: #8a6325;
+
+  /* Warm champagne — replaces sage green for border/tint tokens */
+  --color-brand-green: #c8b49a;
+  --color-brand-green-light: #f5ede0;
+
+  /* Warm-tinted neutrals */
+  --color-brand-black: #100e0a;
+  --color-brand-gray: #7a6e62;
+  --color-brand-off-white: #faf7f2;
+
+  --animate-img-fade: img-fade 0.7s ease;
+  --animate-marquee-left: marquee-left 25s linear infinite;
+  --animate-marquee-right: marquee-right 25s linear infinite;
+}
+
+@keyframes img-fade {
+  from { opacity: 0; transform: scale(1.04); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Cinematic entrance animations ── */
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to   { transform: scale(1); }
+}
+
+@keyframes hero-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(44px);
+    filter: blur(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes nav-slide-in {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-25%); }
+  to   { transform: translateX(0); }
 }
 
 html {
