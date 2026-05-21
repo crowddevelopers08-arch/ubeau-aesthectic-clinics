@@ -47,12 +47,12 @@ function StatNum({ display, end, suffix }: { display: string; end: number | null
 
 export default function TrustStrip() {
   return (
-    <div className="bg-brand-black grid grid-cols-2 lg:grid-cols-4">
+    <div className="bg-brand-black grid grid-cols-2 lg:grid-cols-4 items-stretch">
       {stats.map((stat, i) => (
-        <FadeUp key={i} delay={i * 100} variant="fade">
+        <FadeUp key={i} delay={i * 100} variant="fade" className="h-full">
           <div
             className={[
-              'text-center px-4 sm:px-6 py-7 sm:py-8',
+              'h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-10',
               i === 0 ? 'border-r border-white/10' : '',
               i === 1 ? 'lg:border-r lg:border-white/10' : '',
               i === 2 ? 'border-r border-white/10' : '',
