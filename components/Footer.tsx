@@ -89,9 +89,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <p className="font-outfit text-[0.7rem] text-white/45 font-light">
-            © 2025 UBÊAU Advanced Aesthetics. All rights reserved.
+            © 2026 UBÊAU Advanced Aesthetics. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 flex-wrap">
             <Link
               href="https://instagram.com/ubeauclinic"
               target="_blank"
@@ -105,6 +105,13 @@ export default function Footer() {
               className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-white/50 no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
             >
               73-400-200-73
+            </Link>
+            <span className="w-px h-3 bg-white/20" />
+            <Link
+              href="/privacy-policy"
+              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-white/50 no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+            >
+              Privacy Policy
             </Link>
           </div>
         </div>

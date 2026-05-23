@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(head -30)"
+      "PowerShell(head -30)",
+      "Bash(Get-ChildItem -Path \"d:\\\\Grow medico LP\\\\Ubeau-aesthetic-clinics\" -Recurse -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(Head -30)"
     ]
   }
 }

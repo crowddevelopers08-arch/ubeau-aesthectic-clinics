@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const E = 'cubic-bezier(0.16,1,0.3,1)'
 const heroIn = (delay: number) => ({ animation: `hero-in 1.2s ${E} ${delay}s both` })
@@ -13,12 +14,29 @@ const treatments = [
 ]
 
 export default function Hero() {
-  const [form, setForm] = useState({ name: '', email: '', treatment: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const router = useRouter()
+  const [form, setForm] = useState({ name: '', phone: '', location: '', treatment: '' })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, pageUrl: window.location.href }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setError(data.error || 'Something went wrong. Please try again.'); return }
+      router.push('/thank-you')
+    } catch {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -102,15 +120,7 @@ export default function Hero() {
                 Start Your Skin <em className="italic text-brand-pink-light">Journey</em>
               </h2>
 
-              {submitted ? (
-                <div className="py-8 text-center">
-                  <p className="font-outfit text-white text-[1rem] font-light leading-[1.8]">
-                    Thank you, <span className="text-brand-pink-light font-medium">{form.name}</span>!<br />
-                    We&apos;ll be in touch at <span className="text-brand-pink-light">{form.email}</span> shortly.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   {/* Name */}
                   <div className="flex flex-col gap-1.5">
                     <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
@@ -126,17 +136,31 @@ export default function Hero() {
                     />
                   </div>
 
-                  {/* Email */}
+                  {/* Phone */}
                   <div className="flex flex-col gap-1.5">
                     <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
-                      Email Address
+                      Phone Number
                     </label>
                     <input
-                      type="email"
+                      type="tel"
                       required
-                      placeholder="your@email.com"
-                      value={form.email}
-                      onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                      placeholder="10-digit mobile number"
+                      value={form.phone}
+                      onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                      className="bg-white/8 border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none placeholder:text-white/30 focus:border-brand-pink transition-colors duration-200"
+                    />
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
+                      Your Location
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="City / Area (optional)"
+                      value={form.location}
+                      onChange={e => setForm(f => ({ ...f, location: e.target.value }))}
                       className="bg-white/8 border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none placeholder:text-white/30 focus:border-brand-pink transition-colors duration-200"
                     />
                   </div>
@@ -147,30 +171,35 @@ export default function Hero() {
                       Treatment of Interest
                     </label>
                     <select
-                      required
                       value={form.treatment}
                       onChange={e => setForm(f => ({ ...f, treatment: e.target.value }))}
                       className="bg-brand-black border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none focus:border-brand-pink transition-colors duration-200 cursor-pointer appearance-none"
                     >
-                      <option value="" disabled className="text-white/40">Select a treatment</option>
+                      <option value="" className="text-white/40">Select a treatment (optional)</option>
                       {treatments.map(t => (
                         <option key={t} value={t} className="text-white bg-brand-black">{t}</option>
                       ))}
                     </select>
                   </div>
 
+                  {error && (
+                    <p className="font-outfit text-[0.75rem] text-red-400 font-light text-center">
+                      {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="mt-2 bg-brand-pink text-white font-outfit text-[0.72rem] tracking-[0.16em] uppercase py-4 font-medium transition-all duration-300 hover:bg-brand-pink-dark"
+                    disabled={loading}
+                    className="mt-2 bg-brand-pink text-white font-outfit text-[0.72rem] tracking-[0.16em] uppercase py-4 font-medium transition-all duration-300 hover:bg-brand-pink-dark disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Request Consultation
+                    {loading ? 'Submitting…' : 'Request Consultation'}
                   </button>
 
                   <p className="font-outfit text-[0.7rem] text-white/35 font-light text-center leading-[1.7]">
                     No commitment. We&apos;ll contact you within 24 hours.
                   </p>
                 </form>
-              )}
             </div>
           </div>
 
