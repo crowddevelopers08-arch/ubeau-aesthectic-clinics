@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Approach() {
   const imageSection = (
-    <div className="group relative min-h-56 sm:min-h-72 lg:min-h-96 overflow-hidden">
+    <div className="group relative min-h-56 sm:min-h-72 lg:min-h-0 lg:h-full overflow-hidden">
       <Image
         src="/abbbc.jpg"
         alt="UBÊAU skin care specialist treatment"
@@ -60,7 +60,7 @@ export default function Approach() {
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:block lg:h-full">
         {imageSection}
       </div>
     </div>
