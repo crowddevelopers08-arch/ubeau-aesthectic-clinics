@@ -65,7 +65,7 @@ export default function Hero() {
       <div className="relative z-[2] grid grid-cols-1 lg:min-h-[110vh] lg:grid-cols-[3fr_2fr]">
 
           {/* Left — text, vertically centred */}
-          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 pt-32 pb-8 max-[470px]:pt-28 max-[470px]:pb-6 lg:py-20">
+          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 pt-32 pb-8 max-[470px]:pt-36 max-[470px]:pb-14 lg:py-20">
             <h1
               className="font-outfit text-[clamp(1.2rem,3vw,2.8rem)] font-semibold leading-[1.25] text-white mb-4 sm:mb-6"
               style={{ ...heroIn(0.35), textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
