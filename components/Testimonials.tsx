@@ -91,6 +91,7 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)
   const total = testimonials.length
+  const marqueeTestimonials = [...testimonials, ...testimonials]
 
   const next = useCallback(() => {
     setCurrent(i => (i + 1) % total)
@@ -118,22 +119,36 @@ export default function Testimonials() {
         Stories of <em className="italic text-brand-pink">Transformation</em>
       </h2>
 
-      {/* Carousel — 1 card on mobile, 3 cards on desktop */}
-      <div className="overflow-hidden">
+      {/* Mobile carousel */}
+      <div className="overflow-hidden lg:hidden">
         <div
           className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {testimonials.map((t, i) => (
-            <div key={i} className="w-full lg:w-1/3 shrink-0 px-0 lg:px-2">
+            <div key={i} className="w-full shrink-0">
               <TestimonialCard {...t} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="flex items-center justify-between mt-5">
+      {/* Desktop marquee */}
+      <div
+        className="hidden lg:block overflow-hidden"
+        style={{ maskImage: 'linear-gradient(to right, transparent, black 7%, black 93%, transparent)' }}
+      >
+        <div className="flex flex-nowrap w-max animate-marquee-left hover:[animation-play-state:paused]">
+          {marqueeTestimonials.map((t, i) => (
+            <div key={`${t.name}-${i}`} className="w-[34rem] shrink-0 px-2">
+              <TestimonialCard {...t} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile controls */}
+      <div className="flex items-center justify-between mt-5 lg:hidden">
 
         {/* Dot indicators */}
         <div className="flex items-center gap-1.5 flex-wrap">
