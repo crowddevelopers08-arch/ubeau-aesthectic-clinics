@@ -40,7 +40,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative overflow-hidden lg:min-h-[110vh]">
       <Image
         src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=90&auto=format&fit=crop"
         alt="UBÊAU Advanced Aesthetics luxury skin clinic"
@@ -62,12 +62,12 @@ export default function Hero() {
       />
 
       {/* Full-height grid — left text | right form */}
-      <div className="relative z-[2] min-h-screen grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
+      <div className="relative z-[2] grid grid-cols-1 lg:min-h-[110vh] lg:grid-cols-[3fr_2fr]">
 
           {/* Left — text, vertically centred */}
-          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 pt-28 pb-10 max-[470px]:pt-20 max-[470px]:pb-8">
+          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 pt-32 pb-8 max-[470px]:pt-28 max-[470px]:pb-6 lg:py-20">
             <h1
-              className="font-outfit text-[clamp(1.4rem,2.8vw,2.8rem)] font-semibold leading-[1.2] text-white mb-5 sm:mb-6"
+              className="font-outfit text-[clamp(1.2rem,3vw,2.8rem)] font-semibold leading-[1.25] text-white mb-4 sm:mb-6"
               style={{ ...heroIn(0.35), textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
             >
               Advanced Skin Treatments Designed for{' '}
@@ -76,7 +76,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className="font-outfit text-[0.85rem] sm:text-[0.95rem] font-normal leading-[1.8] text-white mb-6 sm:mb-8"
+              className="font-outfit text-[0.9rem] sm:text-[0.95rem] font-normal leading-[1.8] text-white mb-5 sm:mb-8"
               style={{ ...heroIn(0.7), textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
             >
               At{' '}
@@ -110,14 +110,14 @@ export default function Hero() {
           {/* Right — full-height form panel */}
           <div
             id="consultation-form"
-            className="flex flex-col px-8 sm:px-10 lg:px-12"
-            style={{ minHeight: '100vh', background: 'rgba(255,239,225,0.96)', backdropFilter: 'blur(18px)', ...heroIn(0.6) }}
+            className="flex flex-col px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-14 lg:justify-center"
+            style={{ background: 'rgba(255,239,225,0.96)', backdropFilter: 'blur(18px)', ...heroIn(0.6) }}
           >
-          <div className="flex-1 flex flex-col justify-center pt-36 pb-16 lg:pt-40 lg:pb-20 w-full">
+          <div className="flex flex-col w-full">
               <p className="font-outfit text-[0.6rem] tracking-[0.28em] uppercase text-brand-pink font-medium mb-1">
                 Book a Consultation
               </p>
-              <h2 className="font-outfit text-[1.4rem] sm:text-[1.65rem] font-normal text-brand-black leading-[1.2] mb-7">
+              <h2 className="font-outfit text-[1.4rem] sm:text-[1.65rem] font-normal text-brand-black leading-[1.2] mb-5">
                 Start Your Skin <em className="italic text-brand-pink">Journey</em>
               </h2>
 

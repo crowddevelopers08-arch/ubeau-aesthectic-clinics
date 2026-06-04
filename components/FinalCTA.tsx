@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function FinalCTA() {
   return (
-    <div className="relative overflow-hidden px-4 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-28 text-center">
+    <div className="relative overflow-hidden px-4 sm:px-8 lg:px-20 py-10 sm:py-20 lg:py-28 text-center">
       <Image
         src="/foo.avif"
         alt="UBÊAU Aesthetics clinic luxury interior"
@@ -20,7 +20,7 @@ export default function FinalCTA() {
           <em className="italic text-[#ffefe1]">Life</em> Starts Here
         </h2>
 
-        <p className="font-outfit text-sm sm:text-[0.95rem] font-normal text-white mb-10 sm:mb-12 leading-[1.95]">
+        <p className="font-outfit text-sm sm:text-[0.95rem] font-normal text-white mb-7 sm:mb-12 leading-[1.95]">
           Enjoy customised skin transformation with advanced protocols for lasting
           results.
         </p>

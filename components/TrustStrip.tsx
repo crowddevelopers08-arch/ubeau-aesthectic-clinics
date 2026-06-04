@@ -52,7 +52,7 @@ export default function TrustStrip() {
         <FadeUp key={i} delay={i * 100} variant="fade" className="h-full">
           <div
             className={[
-              'h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 py-5 sm:py-7',
+              'h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 py-4 sm:py-7',
               i === 0 ? 'border-r border-brand-black/8' : '',
               i === 1 ? 'lg:border-r lg:border-brand-black/8' : '',
               i === 2 ? 'border-r border-brand-black/8' : '',

@@ -42,17 +42,17 @@ const protocols = [
 
 export default function Protocols() {
   return (
-    <div id="protocols" className="bg-brand-off-white py-10 sm:py-14 lg:py-20">
+    <div id="protocols" className="bg-brand-off-white py-7 sm:py-14 lg:py-20">
 
       {/* ── Section Header ── */}
-      <div className="px-4 sm:px-8 lg:px-20 mb-6 sm:mb-10">
+      <div className="px-4 sm:px-8 lg:px-20 mb-5 sm:mb-10">
         <div className="flex items-center gap-3 mb-4">
           <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
           <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
             Our Signature Skin Protocols
           </span>
         </div>
-        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black">
+        <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black">
           Treatments Crafted for{' '}
           <em className="italic text-brand-pink">Lasting Results</em>
         </h2>
@@ -69,7 +69,7 @@ export default function Protocols() {
           >
 
             {/* ── Content Side ── */}
-            <div className="w-full lg:w-1/2 px-4 sm:px-8 lg:px-20 py-4 lg:py-6 flex flex-col justify-center">
+            <div className="w-full lg:w-1/2 px-4 sm:px-8 lg:px-20 py-5 sm:py-8 lg:py-10 flex flex-col justify-center">
 
               <p className="font-outfit text-[0.62rem] tracking-[0.24em] uppercase text-brand-pink font-medium mb-2">
                 {p.category}
@@ -133,7 +133,7 @@ export default function Protocols() {
             </div>
 
             {/* ── Image Side ── */}
-            <div className="relative w-full lg:w-1/2 min-h-40 sm:min-h-52 lg:min-h-72 overflow-hidden order-first lg:order-0">
+            <div className="relative w-full lg:w-1/2 min-h-64 sm:min-h-52 lg:min-h-72 overflow-hidden order-first lg:order-0">
               <Image
                 src={p.image}
                 alt={p.alt}

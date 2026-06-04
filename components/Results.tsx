@@ -32,99 +32,112 @@ export default function Results() {
 
   const hasImages = total > 0
 
+  const carousel = hasImages ? (
+    <div className="flex flex-col gap-4">
+
+      {/* Two images in a single row */}
+      <div className="grid grid-cols-2 gap-2 sm:gap-3">
+        {[0, 1].map(offset => {
+          const img = validImages[(current + offset) % total]
+          return (
+            <div
+              key={`${current}-${offset}`}
+              className="relative overflow-hidden h-48 sm:h-60 lg:h-72"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover object-center brightness-95 transition-[filter] duration-300 hover:brightness-100"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                onError={() =>
+                  setFailedSrcs(prev => new Set(prev).add(img.src))
+                }
+              />
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Controls: arrows + dots */}
+      <div className="flex items-center justify-between pt-1">
+
+        {/* Arrow buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={prev}
+            aria-label="Previous images"
+            className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
+          >
+            ←
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next images"
+            className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
+          >
+            →
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex items-center gap-1.5">
+          {validImages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to image ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === current
+                  ? 'w-5 h-1.5 bg-brand-pink'
+                  : 'w-1.5 h-1.5 bg-brand-black/35 hover:bg-brand-pink'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+    </div>
+  ) : null
+
   return (
-    <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20">
-      <div className={`grid grid-cols-1 gap-12 sm:gap-16 lg:gap-28 items-center ${hasImages ? 'lg:grid-cols-2' : ''}`}>
+    <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20">
+      <div className={`grid grid-cols-1 gap-6 sm:gap-10 lg:gap-16 items-center ${hasImages ? 'lg:grid-cols-[2fr_3fr]' : ''}`}>
 
         {/* Left: Text */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
-            <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
-              Results &amp; Transformations
-            </span>
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
+              <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
+                Results &amp; Transformations
+              </span>
+            </div>
+            <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-6">
+              Real Skin <em className="italic text-brand-pink">Transformations</em>
+            </h2>
           </div>
-          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-6">
-            Real Skin <em className="italic text-brand-pink">Transformations</em>
-          </h2>
-          <p className="font-outfit text-sm sm:text-[0.95rem] font-normal leading-[1.85] sm:leading-[1.95] text-brand-black">
-            Visible improvements in skin clarity, acne reduction, texture
-            refinement, hydration, and radiance through customised UBÊAU
-            protocols.
-          </p>
-          <p className="font-outfit text-[0.78rem] sm:text-[0.82rem] font-normal italic text-brand-black mt-6 border-l-2 border-brand-pink pl-4 leading-[1.75]">
-            Before &amp; after photos, patient stories and testimonials reflect
-            real client experiences with UBÊAU protocols. Individual results may
-            vary based on skin condition and protocol.
-          </p>
+
+          {hasImages && <div className="mb-5 lg:hidden">{carousel}</div>}
+
+          <div>
+            <p className="font-outfit text-sm sm:text-[0.95rem] font-normal leading-[1.85] sm:leading-[1.95] text-brand-black">
+              Visible improvements in skin clarity, acne reduction, texture
+              refinement, hydration, and radiance through customised UBÊAU
+              protocols.
+            </p>
+            <p className="font-outfit text-[0.78rem] sm:text-[0.82rem] font-normal italic text-brand-black mt-5 border-l-2 border-brand-pink pl-4 leading-[1.75]">
+              Before &amp; after photos, patient stories and testimonials reflect
+              real client experiences with UBÊAU protocols. Individual results may
+              vary based on skin condition and protocol.
+            </p>
+          </div>
         </div>
 
         {/* Right: Carousel */}
         {hasImages && (
-          <div className="flex flex-col gap-4">
-
-            {/* Two images in a single row */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-3">
-              {[0, 1].map(offset => {
-                const img = validImages[(current + offset) % total]
-                return (
-                  <div
-                    key={`${current}-${offset}`}
-                    className="relative overflow-hidden h-48 sm:h-60 lg:h-72"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover object-center brightness-95 transition-[filter] duration-300 hover:brightness-100"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
-                      onError={() =>
-                        setFailedSrcs(prev => new Set(prev).add(img.src))
-                      }
-                    />
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Controls: arrows + dots */}
-            <div className="flex items-center justify-between pt-1">
-
-              {/* Arrow buttons */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prev}
-                  aria-label="Previous images"
-                  className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={next}
-                  aria-label="Next images"
-                  className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
-                >
-                  →
-                </button>
-              </div>
-
-              {/* Dot indicators */}
-              <div className="flex items-center gap-1.5">
-                {validImages.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Go to image ${i + 1}`}
-                    className={`rounded-full transition-all duration-300 ${
-                      i === current
-                        ? 'w-5 h-1.5 bg-brand-pink'
-                        : 'w-1.5 h-1.5 bg-brand-black/35 hover:bg-brand-pink'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-
+          <div className="hidden lg:flex lg:flex-col">
+            {carousel}
           </div>
         )}
       </div>

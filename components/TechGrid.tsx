@@ -10,7 +10,7 @@ const logos = [
 
 function LogoCard({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex items-center justify-center px-10 py-7 mx-2 bg-white border border-brand-green/20 w-52 shrink-0">
+    <div className="flex items-center justify-center px-10 py-5 mx-2 bg-white border border-brand-green/20 w-52 shrink-0">
       <div className="relative w-36 h-16">
         <Image
           src={src}
@@ -26,7 +26,7 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
 
 export default function TechGrid() {
   return (
-    <div className="bg-brand-off-white py-10 sm:py-14 lg:py-20 overflow-hidden">
+    <div className="bg-brand-off-white py-7 sm:py-14 lg:py-20 overflow-hidden">
       <div className="text-center px-4 sm:px-8 lg:px-20">
         <div className="flex items-center justify-center gap-3 mb-3">
           <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
@@ -35,7 +35,7 @@ export default function TechGrid() {
           </span>
           <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
         </div>
-        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-8">
+        <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-4 sm:mb-8">
           Powered by Globally Recognised Technologies
         </h2>
       </div>

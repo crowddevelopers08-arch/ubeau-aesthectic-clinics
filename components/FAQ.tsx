@@ -30,8 +30,8 @@ export default function FAQ() {
   const toggle = (i: number) => setOpen(open === i ? null : i)
 
   return (
-    <section id="faq" className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="faq" className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
         {/* Left — FAQ accordion */}
         <div>
@@ -41,7 +41,7 @@ export default function FAQ() {
               FAQs
             </span>
           </div>
-          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-8">
+          <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-4 sm:mb-8">
             Frequently Asked <em className="italic text-brand-pink">Questions</em>
           </h2>
 
@@ -50,7 +50,7 @@ export default function FAQ() {
               <div key={i} className="border-b border-brand-pink/15">
                 <button
                   onClick={() => toggle(i)}
-                  className={`w-full text-left py-5 sm:py-6 font-outfit text-base sm:text-[1.08rem] font-normal leading-[1.4] flex justify-between items-center gap-4 transition-colors duration-300 cursor-pointer bg-transparent border-0 outline-none ${
+                  className={`w-full text-left py-4 sm:py-6 font-outfit text-base sm:text-[1.08rem] font-normal leading-[1.4] flex justify-between items-center gap-4 transition-colors duration-300 cursor-pointer bg-transparent border-0 outline-none ${
                     open === i ? 'text-brand-pink' : 'text-brand-black hover:text-brand-pink'
                   }`}
                 >
@@ -69,7 +69,7 @@ export default function FAQ() {
                   className="overflow-hidden transition-all duration-400 ease-in-out"
                   style={{ maxHeight: open === i ? '300px' : '0' }}
                 >
-                  <p className="font-outfit text-sm sm:text-[0.92rem] font-normal leading-[1.95] text-brand-black pb-5 sm:pb-6">
+                  <p className="font-outfit text-sm sm:text-[0.92rem] font-normal leading-[1.95] text-brand-black pb-4 sm:pb-6">
                     {faq.a}
                   </p>
                 </div>
@@ -79,7 +79,7 @@ export default function FAQ() {
         </div>
 
         {/* Right — image */}
-        <div className="relative hidden lg:block h-[560px] overflow-hidden">
+        <div className="relative hidden lg:block lg:h-auto lg:self-stretch overflow-hidden min-h-80">
           <Image
             src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=90&auto=format&fit=crop&crop=center"
             alt="Skincare consultation at UBÊAU clinic"

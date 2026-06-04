@@ -10,8 +10,8 @@ const protocols = [
 export default function Footer() {
   return (
     <footer className="bg-brand-off-white border-t border-brand-black/10">
-      <div className="px-4 sm:px-8 lg:px-20 pt-8 sm:pt-10 pb-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr] gap-8 lg:gap-10 pb-8 border-b border-brand-black/10">
+      <div className="px-4 sm:px-8 lg:px-20 pt-7 sm:pt-10 pb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr] gap-7 lg:gap-10 pb-6 border-b border-brand-black/10">
 
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">

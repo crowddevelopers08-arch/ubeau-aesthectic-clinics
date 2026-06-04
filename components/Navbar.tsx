@@ -30,7 +30,7 @@ export default function Navbar() {
         className={`fixed top-[3px] left-0 right-0 z-[200] transition-all duration-300 ${
           scrolled
             ? 'bg-brand-off-white shadow-[0_2px_24px_rgba(134,88,33,0.10)] py-3'
-            : 'bg-brand-off-white/97 backdrop-blur-xl border-b border-brand-pink/12 py-5'
+            : 'bg-brand-off-white/97 backdrop-blur-xl border-b border-brand-pink/12 py-4'
         }`}
         style={{ animation: 'nav-slide-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}
       >

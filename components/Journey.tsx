@@ -28,7 +28,7 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="relative overflow-hidden px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20"
+      className="relative overflow-hidden px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20"
       style={{ background: 'linear-gradient(135deg, #ffefe1 0%, #f5dfc8 100%)' }}
     >
       {/* Section header */}
@@ -40,12 +40,12 @@ export default function Journey() {
           </span>
           <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
         </div>
-        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black">
+        <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black">
           Your Skin Journey at <em className="italic text-brand-pink">UBÊAU</em>
         </h2>
       </div>
 
-      <div className="relative z-[1] mt-8 sm:mt-10 lg:mt-12">
+      <div className="relative z-[1] mt-6 sm:mt-10 lg:mt-12">
 
         {/* ── Animated passing line — desktop only ── */}
         {/* top-20 = 80px = centre of the 160px image circles */}
@@ -59,7 +59,7 @@ export default function Journey() {
         </div>
 
         {/* Step cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-0">
           {steps.map((step, i) => (
             <FadeUp key={i} delay={i * 150} className="relative z-[1]">
               <div className="flex flex-col items-center text-center sm:px-4 lg:px-6">

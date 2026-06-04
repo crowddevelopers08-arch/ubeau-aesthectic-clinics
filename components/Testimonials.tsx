@@ -53,7 +53,7 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <div className="bg-white border border-brand-black/10 p-6 sm:p-8 lg:p-10 h-full flex flex-col">
+    <div className="bg-white border border-brand-black/10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
 
       {/* Stars + Google icon */}
       <div className="flex items-center justify-between mb-4">
@@ -105,7 +105,7 @@ export default function Testimonials() {
   }, [next])
 
   return (
-    <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20">
+    <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20">
 
       {/* Section header */}
       <div className="flex items-center gap-3 mb-4">
@@ -114,7 +114,7 @@ export default function Testimonials() {
           What Our Clients Say
         </span>
       </div>
-      <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-8">
+      <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-4 sm:mb-8">
         Stories of <em className="italic text-brand-pink">Transformation</em>
       </h2>
 
@@ -122,7 +122,7 @@ export default function Testimonials() {
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(calc(-${current} * (100% / 3)))` }}
+          style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {testimonials.map((t, i) => (
             <div key={i} className="w-full lg:w-1/3 shrink-0 px-0 lg:px-2">
@@ -133,7 +133,7 @@ export default function Testimonials() {
       </div>
 
       {/* Controls */}
-      <div className="flex items-center justify-between mt-6">
+      <div className="flex items-center justify-between mt-5">
 
         {/* Dot indicators */}
         <div className="flex items-center gap-1.5 flex-wrap">
