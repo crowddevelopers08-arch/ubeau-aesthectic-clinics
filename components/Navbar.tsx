@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 const navLinks = [
   ['#approach', 'Approach'],
   ['#protocols', 'Protocols'],
-  ['#why', 'Why UBÊAU'],
+  ['#doctors', 'Why UBÊAU'],
   ['#journey', 'Process'],
   ['#faq', 'FAQ'],
 ]
@@ -36,7 +36,7 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between px-4 sm:px-8 lg:px-20">
           {/* Logo */}
-          <Link href="#" className="shrink-0 no-underline">
+          <Link href="/" className="shrink-0 no-underline">
             <Image
               src="/Screenshot.png"
               alt="UBÊAU Advanced Aesthetics"
