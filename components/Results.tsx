@@ -1,84 +1,130 @@
-'use client'
-import { useState, useEffect, useRef } from 'react'
+﻿'use client'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import FadeUp from './FadeUp'
 
 const images = [
-  { src: '/InShot_20240418_121336237.jpg', alt: 'Skin transformation result 1' },
-  { src: '/InShot_20240813_170553101.jpg', alt: 'Skin transformation result 2' },
-  { src: '/InShot_20260319_144009025.jpg', alt: 'Skin transformation result 3' },
-  { src: '/InShot_20240813_194320078.jpg', alt: 'Skin transformation result 4' },
-  { src: '/InShot_20240813_195717084.jpg', alt: 'Skin transformation result 5' },
-  { src: '/InShot_20260317_143459622.jpg', alt: 'Skin transformation result 6' },
-  { src: '/InShot_20260317_144547705.jpg', alt: 'Skin transformation result 7' },
-  { src: '/InShot_20260317_151247298.jpg', alt: 'Skin transformation result 8' },
-  { src: '/InShot_20260318_113549154.jpg', alt: 'Skin transformation result 9' },
+  { src: 'https://static.wixstatic.com/media/3b7dd9_2aabffc6788e4c16a55c50693c908f3a~mv2.png/v1/fill/w_371,h_371,q_90,enc_avif,quality_auto/3b7dd9_2aabffc6788e4c16a55c50693c908f3a~mv2.png', alt: 'Skin transformation result 1' },
+  { src: 'https://static.wixstatic.com/media/3b7dd9_deecd7a862d448948e85089ae6cec37c~mv2.png/v1/fill/w_371,h_371,q_90,enc_avif,quality_auto/3b7dd9_deecd7a862d448948e85089ae6cec37c~mv2.png', alt: 'Skin transformation result 2' },
+  { src: 'https://static.wixstatic.com/media/0e4137_9bba143482f94704a3c8b6fad51c0b8d~mv2.jpg/v1/fill/w_371,h_371,q_90,enc_avif,quality_auto/0e4137_9bba143482f94704a3c8b6fad51c0b8d~mv2.jpg', alt: 'Skin transformation result 3' },
+  { src: 'https://static.wixstatic.com/media/0e4137_36f71856069c433d86f8ecd6c2e28a2b~mv2.jpg/v1/fill/w_370,h_371,q_90,enc_avif,quality_auto/0e4137_36f71856069c433d86f8ecd6c2e28a2b~mv2.jpg', alt: 'Skin transformation result 4' },
+  { src: 'https://static.wixstatic.com/media/0e4137_9fdbbc5b0308416b82bc970fc50a4a28~mv2.jpg/v1/fill/w_371,h_371,q_90,enc_avif,quality_auto/0e4137_9fdbbc5b0308416b82bc970fc50a4a28~mv2.jpg', alt: 'Skin transformation result 5' },
+  { src: 'https://static.wixstatic.com/media/0e4137_bf92e5d77d5847029ab1fbe813e5e94f~mv2.jpg/v1/fill/w_370,h_371,q_90,enc_avif,quality_auto/0e4137_bf92e5d77d5847029ab1fbe813e5e94f~mv2.jpg', alt: 'Skin transformation result 6' },
 ]
 
 export default function Results() {
-  const [slotIndices, setSlotIndices] = useState([0, 1, 2, 3])
+  const [current, setCurrent] = useState(0)
   const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set())
-  const nextImageRef = useRef(4)
-  const nextSlotRef = useRef(0)
+
+  const validImages = images.filter(img => !failedSrcs.has(img.src))
+  const total = validImages.length
+
+  const next = useCallback(() => {
+    setCurrent(c => (c + 1) % total)
+  }, [total])
+
+  const prev = () => setCurrent(c => (c - 1 + total) % total)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSlotIndices(prev => {
-        const updated = [...prev]
-        updated[nextSlotRef.current] = nextImageRef.current % images.length
-        nextImageRef.current++
-        nextSlotRef.current = (nextSlotRef.current + 1) % 4
-        return updated
-      })
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [])
+    if (total === 0) return
+    const timer = setInterval(next, 3500)
+    return () => clearInterval(timer)
+  }, [next, total])
 
-  const visibleSlots = slotIndices.filter(idx => !failedSrcs.has(images[idx].src))
-  const hasImages = visibleSlots.length > 0
+  const hasImages = total > 0
 
   return (
-    <section className="bg-white px-4 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-32">
+    <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20">
       <div className={`grid grid-cols-1 gap-12 sm:gap-16 lg:gap-28 items-center ${hasImages ? 'lg:grid-cols-2' : ''}`}>
+
+        {/* Left: Text */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+            <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
             <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
               Results &amp; Transformations
             </span>
           </div>
-          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-light leading-[1.15] text-brand-black mb-5 sm:mb-6">
+          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-6">
             Real Skin <em className="italic text-brand-pink">Transformations</em>
           </h2>
-          <p className="font-outfit text-sm sm:text-[0.95rem] font-light leading-[1.85] sm:leading-[1.95] text-brand-black/78">
+          <p className="font-outfit text-sm sm:text-[0.95rem] font-normal leading-[1.85] sm:leading-[1.95] text-brand-black">
             Visible improvements in skin clarity, acne reduction, texture
             refinement, hydration, and radiance through customised UBÊAU
             protocols.
           </p>
-          <p className="font-outfit text-[0.78rem] sm:text-[0.82rem] font-light italic text-brand-black/60 mt-6 border-l-2 border-brand-pink pl-4 leading-[1.75]">
+          <p className="font-outfit text-[0.78rem] sm:text-[0.82rem] font-normal italic text-brand-black mt-6 border-l-2 border-brand-pink pl-4 leading-[1.75]">
             Before &amp; after photos, patient stories and testimonials reflect
             real client experiences with UBÊAU protocols. Individual results may
             vary based on skin condition and protocol.
           </p>
         </div>
 
+        {/* Right: Carousel */}
         {hasImages && (
-          <div className="grid grid-cols-2 gap-2 sm:gap-1.5">
-            {visibleSlots.map((imgIdx, slotI) => (
-              <FadeUp key={slotI} delay={slotI * 120}>
-                <div className="group overflow-hidden h-52 sm:h-64 lg:h-75 relative">
-                  <Image
-                    key={imgIdx}
-                    src={images[imgIdx].src}
-                    alt={images[imgIdx].alt}
-                    fill
-                    className="object-cover object-center brightness-95 group-hover:brightness-100 animate-img-fade"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                    onError={() => setFailedSrcs(prev => new Set(prev).add(images[imgIdx].src))}
+          <div className="flex flex-col gap-4">
+
+            {/* Two images in a single row */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              {[0, 1].map(offset => {
+                const img = validImages[(current + offset) % total]
+                return (
+                  <div
+                    key={`${current}-${offset}`}
+                    className="relative overflow-hidden h-48 sm:h-60 lg:h-72"
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover object-center brightness-95 transition-[filter] duration-300 hover:brightness-100"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      onError={() =>
+                        setFailedSrcs(prev => new Set(prev).add(img.src))
+                      }
+                    />
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Controls: arrows + dots */}
+            <div className="flex items-center justify-between pt-1">
+
+              {/* Arrow buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prev}
+                  aria-label="Previous images"
+                  className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next images"
+                  className="w-9 h-9 flex items-center justify-center border border-brand-black/40 text-brand-black text-sm hover:border-brand-pink hover:text-brand-pink transition-colors duration-200"
+                >
+                  →
+                </button>
+              </div>
+
+              {/* Dot indicators */}
+              <div className="flex items-center gap-1.5">
+                {validImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === current
+                        ? 'w-5 h-1.5 bg-brand-pink'
+                        : 'w-1.5 h-1.5 bg-brand-black/35 hover:bg-brand-pink'
+                    }`}
                   />
-                </div>
-              </FadeUp>
-            ))}
+                ))}
+              </div>
+            </div>
+
           </div>
         )}
       </div>

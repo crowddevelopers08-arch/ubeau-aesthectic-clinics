@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -51,32 +51,33 @@ export default function Hero() {
         style={{ animation: `hero-zoom 3.5s ${E} both` }}
       />
 
+      {/* Warm brown overlay — replaces the old black overlay */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(110deg, rgba(10,10,10,0.93) 0%, rgba(10,10,10,0.88) 45%, rgba(10,10,10,0.55) 100%)',
+            'linear-gradient(110deg, rgba(134,88,33,0.92) 0%, rgba(134,88,33,0.85) 40%, rgba(134,88,33,0.45) 100%)',
           animation: `hero-overlay-in 2s ease both`,
         }}
       />
 
-      <div className="relative z-[2] w-full px-4 sm:px-8 lg:px-20 pt-36 max-[470px]:pb-10 max-[470px]:pt-24 pb-16 lg:pt-24 lg:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Full-height grid — left text | right form */}
+      <div className="relative z-[2] min-h-screen grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
 
-          {/* Left — text */}
-          <div>
+          {/* Left — text, vertically centred */}
+          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 pt-28 pb-10 max-[470px]:pt-20 max-[470px]:pb-8">
             <h1
-              className="font-outfit text-[clamp(1.9rem,4.5vw,4.2rem)] font-light leading-[1.12] text-white mb-5 sm:mb-7"
-              style={heroIn(0.35)}
+              className="font-outfit text-[clamp(1.4rem,2.8vw,2.8rem)] font-semibold leading-[1.2] text-white mb-5 sm:mb-6"
+              style={{ ...heroIn(0.35), textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
             >
               Advanced Skin Treatments Designed for{' '}
-              <em className="text-brand-pink-light italic">Real, Long-Term</em>{' '}
+              <em className="text-[#ffefe1] italic">Real, Long-Term</em>{' '}
               Skin Transformation
             </h1>
 
             <p
-              className="font-outfit text-sm sm:text-[1rem] font-light leading-[1.85] text-white/85 mb-8 sm:mb-12"
-              style={heroIn(0.7)}
+              className="font-outfit text-[0.85rem] sm:text-[0.95rem] font-normal leading-[1.8] text-white mb-6 sm:mb-8"
+              style={{ ...heroIn(0.7), textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
             >
               At{' '}
               <strong className="text-white font-semibold">
@@ -93,37 +94,37 @@ export default function Hero() {
             >
               <Link
                 href="#consultation-form"
-                className="inline-block text-center bg-brand-pink text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-brand-pink no-underline font-medium transition-all duration-300 hover:bg-brand-pink-dark hover:border-brand-pink-dark"
+                className="inline-block text-center bg-[#ffefe1] text-brand-black font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-[#ffefe1] no-underline font-medium transition-all duration-300 hover:bg-white hover:border-white"
               >
                 Book Consultation
               </Link>
               <Link
                 href="#protocols"
-                className="inline-block text-center bg-transparent text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-white/65 no-underline font-medium transition-all duration-300 hover:border-brand-pink hover:text-brand-pink-light"
+                className="inline-block text-center bg-transparent text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-white/55 no-underline font-medium transition-all duration-300 hover:border-[#ffefe1] hover:text-[#ffefe1]"
               >
                 Explore Skin Protocols
               </Link>
             </div>
           </div>
 
-          {/* Right — booking form */}
-          <div style={heroIn(0.6)}>
-            <div
-              id="consultation-form"
-              className="border border-white/15 p-7 sm:p-9"
-              style={{ background: 'rgba(10,8,5,0.55)', backdropFilter: 'blur(18px)' }}
-            >
+          {/* Right — full-height form panel */}
+          <div
+            id="consultation-form"
+            className="flex flex-col px-8 sm:px-10 lg:px-12"
+            style={{ minHeight: '100vh', background: 'rgba(255,239,225,0.96)', backdropFilter: 'blur(18px)', ...heroIn(0.6) }}
+          >
+          <div className="flex-1 flex flex-col justify-center pt-36 pb-16 lg:pt-40 lg:pb-20 w-full">
               <p className="font-outfit text-[0.6rem] tracking-[0.28em] uppercase text-brand-pink font-medium mb-1">
                 Book a Consultation
               </p>
-              <h2 className="font-outfit text-[1.4rem] sm:text-[1.65rem] font-light text-white leading-[1.2] mb-7">
-                Start Your Skin <em className="italic text-brand-pink-light">Journey</em>
+              <h2 className="font-outfit text-[1.4rem] sm:text-[1.65rem] font-normal text-brand-black leading-[1.2] mb-7">
+                Start Your Skin <em className="italic text-brand-pink">Journey</em>
               </h2>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   {/* Name */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
+                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-brand-black font-normal">
                       Full Name
                     </label>
                     <input
@@ -132,13 +133,13 @@ export default function Hero() {
                       placeholder="Your name"
                       value={form.name}
                       onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                      className="bg-white/8 border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none placeholder:text-white/30 focus:border-brand-pink transition-colors duration-200"
+                      className="bg-white border border-brand-black/15 text-brand-black font-outfit text-[0.88rem] font-normal px-4 py-3 outline-none placeholder:text-brand-gray focus:border-brand-pink transition-colors duration-200"
                     />
                   </div>
 
                   {/* Phone */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
+                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-brand-black font-normal">
                       Phone Number
                     </label>
                     <input
@@ -147,13 +148,13 @@ export default function Hero() {
                       placeholder="10-digit mobile number"
                       value={form.phone}
                       onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                      className="bg-white/8 border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none placeholder:text-white/30 focus:border-brand-pink transition-colors duration-200"
+                      className="bg-white border border-brand-black/15 text-brand-black font-outfit text-[0.88rem] font-normal px-4 py-3 outline-none placeholder:text-brand-gray focus:border-brand-pink transition-colors duration-200"
                     />
                   </div>
 
                   {/* Location */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
+                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-brand-black font-normal">
                       Your Location
                     </label>
                     <input
@@ -161,29 +162,29 @@ export default function Hero() {
                       placeholder="City / Area (optional)"
                       value={form.location}
                       onChange={e => setForm(f => ({ ...f, location: e.target.value }))}
-                      className="bg-white/8 border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none placeholder:text-white/30 focus:border-brand-pink transition-colors duration-200"
+                      className="bg-white border border-brand-black/15 text-brand-black font-outfit text-[0.88rem] font-normal px-4 py-3 outline-none placeholder:text-brand-gray focus:border-brand-pink transition-colors duration-200"
                     />
                   </div>
 
                   {/* Treatment */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-white/55 font-normal">
+                    <label className="font-outfit text-[0.65rem] tracking-[0.18em] uppercase text-brand-black font-normal">
                       Treatment of Interest
                     </label>
                     <select
                       value={form.treatment}
                       onChange={e => setForm(f => ({ ...f, treatment: e.target.value }))}
-                      className="bg-brand-black border border-white/15 text-white font-outfit text-[0.88rem] font-light px-4 py-3 outline-none focus:border-brand-pink transition-colors duration-200 cursor-pointer appearance-none"
+                      className="bg-[#ffefe1] border border-brand-black/15 text-brand-black font-outfit text-[0.88rem] font-normal px-4 py-3 outline-none focus:border-brand-pink transition-colors duration-200 cursor-pointer appearance-none"
                     >
-                      <option value="" className="text-white/40">Select a treatment (optional)</option>
+                      <option value="">Select a treatment (optional)</option>
                       {treatments.map(t => (
-                        <option key={t} value={t} className="text-white bg-brand-black">{t}</option>
+                        <option key={t} value={t}>{t}</option>
                       ))}
                     </select>
                   </div>
 
                   {error && (
-                    <p className="font-outfit text-[0.75rem] text-red-400 font-light text-center">
+                    <p className="font-outfit text-[0.75rem] text-red-600 font-normal text-center">
                       {error}
                     </p>
                   )}
@@ -196,15 +197,14 @@ export default function Hero() {
                     {loading ? 'Submitting…' : 'Request Consultation'}
                   </button>
 
-                  <p className="font-outfit text-[0.7rem] text-white/35 font-light text-center leading-[1.7]">
+                  <p className="font-outfit text-[0.7rem] text-brand-black font-normal text-center leading-[1.7]">
                     No commitment. We&apos;ll contact you within 24 hours.
                   </p>
                 </form>
-            </div>
-          </div>
+          </div>{/* end my-auto wrapper */}
+          </div>{/* end form panel */}
 
         </div>
-      </div>
     </section>
   )
 }

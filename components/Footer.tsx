@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 
 const protocols = [
@@ -9,21 +9,20 @@ const protocols = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black">
-      {/* Main content */}
-      <div className="px-4 sm:px-8 lg:px-20 pt-10 sm:pt-12 lg:pt-14 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr] gap-8 lg:gap-10 pb-8 border-b border-white/10">
+    <footer className="bg-brand-off-white border-t border-brand-black/10">
+      <div className="px-4 sm:px-8 lg:px-20 pt-8 sm:pt-10 pb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr] gap-8 lg:gap-10 pb-8 border-b border-brand-black/10">
 
-          {/* Brand column — full width on sm */}
+          {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/Screenshot.png"
               alt="UBÊAU Advanced Aesthetics"
               width={150}
               height={75}
-              className="h-20 sm:h-24 w-auto mb-4 mix-blend-screen"
+              className="h-20 sm:h-24 w-auto mb-4 mix-blend-multiply"
             />
-            <p className="font-outfit text-[0.84rem] font-light leading-[1.9] text-white/65 max-w-[340px]">
+            <p className="font-outfit text-[0.84rem] font-normal leading-[1.9] text-brand-black max-w-85">
               UBÊAU Advanced Aesthetics Clinic — Odisha&apos;s first luxury skincare
               &amp; wellness clinic. Science-backed protocols for real, lasting skin
               transformation.
@@ -40,7 +39,7 @@ export default function Footer() {
                 <li key={p}>
                   <Link
                     href="#protocols"
-                    className="font-outfit text-[0.83rem] font-light text-white/60 no-underline transition-colors duration-300 hover:text-brand-pink leading-[1.5]"
+                    className="font-outfit text-[0.83rem] font-normal text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink leading-normal"
                   >
                     {p}
                   </Link>
@@ -55,7 +54,7 @@ export default function Footer() {
               Contact
             </p>
             <address className="not-italic flex flex-col gap-3">
-              <span className="font-outfit text-[0.83rem] font-light leading-[1.85] text-white/60">
+              <span className="font-outfit text-[0.83rem] font-normal leading-[1.85] text-brand-black">
                 Shop No. 203, 2nd Floor,<br />
                 Anuj Time Square, Saheed Nagar,<br />
                 Bhubaneswar, Odisha
@@ -63,21 +62,21 @@ export default function Footer() {
               <div className="flex flex-col gap-1.5">
                 <Link
                   href="tel:7340020073"
-                  className="font-outfit text-[0.83rem] font-normal text-brand-pink no-underline transition-colors duration-300 hover:text-brand-pink-light"
+                  className="font-outfit text-[0.83rem] font-normal text-brand-pink no-underline transition-colors duration-300 hover:text-brand-pink-dark"
                 >
                   73-400-200-73
                 </Link>
                 <Link
                   href="https://ubeauclinic.com"
                   target="_blank"
-                  className="font-outfit text-[0.83rem] font-normal text-brand-pink no-underline transition-colors duration-300 hover:text-brand-pink-light"
+                  className="font-outfit text-[0.83rem] font-normal text-brand-pink no-underline transition-colors duration-300 hover:text-brand-pink-dark"
                 >
                   ubeauclinic.com
                 </Link>
                 <Link
                   href="https://instagram.com/ubeauclinic"
                   target="_blank"
-                  className="font-outfit text-[0.83rem] font-light text-white/55 no-underline transition-colors duration-300 hover:text-brand-pink"
+                  className="font-outfit text-[0.83rem] font-normal text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink"
                 >
                   @ubeauclinic
                 </Link>
@@ -88,28 +87,28 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="font-outfit text-[0.7rem] text-white/45 font-light">
+          <p className="font-outfit text-[0.7rem] text-brand-black font-normal">
             © 2026 UBÊAU Advanced Aesthetics. All rights reserved.
           </p>
           <div className="flex items-center gap-6 flex-wrap">
             <Link
               href="https://instagram.com/ubeauclinic"
               target="_blank"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-white/50 no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
             >
               Instagram
             </Link>
-            <span className="w-px h-3 bg-white/20" />
+            <span className="w-px h-3 bg-brand-black/15" />
             <Link
               href="tel:7340020073"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-white/50 no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
             >
               73-400-200-73
             </Link>
-            <span className="w-px h-3 bg-white/20" />
+            <span className="w-px h-3 bg-brand-black/15" />
             <Link
               href="/privacy-policy"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-white/50 no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
             >
               Privacy Policy
             </Link>

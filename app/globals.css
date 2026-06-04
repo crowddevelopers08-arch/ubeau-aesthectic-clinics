@@ -3,32 +3,34 @@
 @theme inline {
   --font-outfit: var(--font-outfit-var);
 
-  /* Logo gold — primary brand accent */
-  --color-brand-pink: #b88532;
-  --color-brand-pink-light: #d4a655;
-  --color-brand-pink-pale: #fdf3e3;
-  --color-brand-pink-dark: #8a6325;
+  /* ── Brand colours — sourced from ubeauclinic.com ── */
+  --color-brand-pink:       #865821;   /* main accent: warm brown-gold  */
+  --color-brand-pink-light: #a87030;   /* lighter accent                */
+  --color-brand-pink-pale:  #ffefe1;   /* cream — same as off-white     */
+  --color-brand-pink-dark:  #5e3c14;   /* deep accent                   */
 
-  /* Warm champagne — replaces sage green for border/tint tokens */
-  --color-brand-green: #c8b49a;
-  --color-brand-green-light: #f5ede0;
+  /* ── Warm neutral borders / dividers ── */
+  --color-brand-green:       #c8aa88;
+  --color-brand-green-light: #fff5ec;
 
-  /* Warm-tinted neutrals */
-  --color-brand-black: #100e0a;
-  --color-brand-gray: #7a6e62;
-  --color-brand-off-white: #faf7f2;
+  /* ── Text & backgrounds ── */
+  --color-brand-black:     #000000;    /* all body / heading text       */
+  --color-brand-gray:      #5a4535;    /* secondary / muted text        */
+  --color-brand-off-white: #ffefe1;    /* primary page background       */
 
-  --animate-img-fade: img-fade 0.7s ease;
-  --animate-marquee-left: marquee-left 25s linear infinite;
-  --animate-marquee-right: marquee-right 25s linear infinite;
+  /* ── Animations ── */
+  --animate-img-fade:        img-fade 0.7s ease;
+  --animate-marquee-left:    marquee-left  25s linear infinite;
+  --animate-marquee-right:   marquee-right 25s linear infinite;
+  --animate-line-travel:     line-travel   2.5s linear infinite;
 }
 
+/* ── Keyframes ── */
 @keyframes img-fade {
   from { opacity: 0; transform: scale(1.04); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* ── Cinematic entrance animations ── */
 @keyframes hero-zoom {
   from { transform: scale(1.12); }
   to   { transform: scale(1); }
@@ -65,6 +67,11 @@
 @keyframes marquee-right {
   from { transform: translateX(-25%); }
   to   { transform: translateX(0); }
+}
+
+@keyframes line-travel {
+  0%   { left: -30%; }
+  100% { left: 120%; }
 }
 
 html {

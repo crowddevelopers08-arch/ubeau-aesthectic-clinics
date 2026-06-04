@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import Link from 'next/link'
 
 const protocols = [
@@ -42,106 +42,122 @@ const protocols = [
 
 export default function Protocols() {
   return (
-    <div id="protocols" className="bg-brand-black px-4 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-32">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
-        <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
-          Our Signature Skin Protocols
-        </span>
-      </div>
-      <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-light leading-[1.15] text-white mb-10 sm:mb-16">
-        Treatments Crafted for{' '}
-        <em className="italic text-brand-pink-light">Lasting Results</em>
-      </h2>
+    <div id="protocols" className="bg-brand-off-white py-10 sm:py-14 lg:py-20">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-[4px]">
-        {protocols.map((p) => (
+      {/* ── Section Header ── */}
+      <div className="px-4 sm:px-8 lg:px-20 mb-6 sm:mb-10">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+          <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
+            Our Signature Skin Protocols
+          </span>
+        </div>
+        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black">
+          Treatments Crafted for{' '}
+          <em className="italic text-brand-pink">Lasting Results</em>
+        </h2>
+      </div>
+
+      {/* ── Protocol Rows ── */}
+      <div className="flex flex-col">
+        {protocols.map((p, i) => (
           <div
             key={p.num}
-            className="group relative flex flex-col lg:block overflow-hidden lg:min-h-[600px] cursor-pointer"
+            className={`flex flex-col border-t border-brand-black/10 ${
+              i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+            }`}
           >
-            {/* ── Image (desktop: fades out on hover) ── */}
-            <div className="relative h-56 sm:h-64 lg:h-full lg:absolute lg:inset-0 overflow-hidden shrink-0">
+
+            {/* ── Content Side ── */}
+            <div className="w-full lg:w-1/2 px-4 sm:px-8 lg:px-20 py-4 lg:py-6 flex flex-col justify-center">
+
+              <p className="font-outfit text-[0.62rem] tracking-[0.24em] uppercase text-brand-pink font-medium mb-2">
+                {p.category}
+              </p>
+              <h3 className="font-outfit text-[1.3rem] sm:text-[1.55rem] lg:text-[1.75rem] font-semibold text-brand-black leading-[1.25] mb-3">
+                {p.name}
+              </h3>
+              <p className="font-outfit text-sm italic text-brand-pink font-normal mb-5">
+                {p.tagline}
+              </p>
+
+              {/* Accent divider */}
+              <span className="w-10 h-px bg-brand-pink mb-5 block" />
+
+              <p className="font-outfit text-[0.84rem] font-normal leading-[1.9] text-brand-black mb-4">
+                {p.desc}
+              </p>
+
+              {/* Ideal For + Benefits */}
+              <div className="grid grid-cols-2 gap-4 mb-5">
+                <div>
+                  <p className="font-outfit text-[0.6rem] tracking-[0.22em] uppercase text-brand-pink font-semibold mb-3">
+                    Ideal For
+                  </p>
+                  <ul className="list-none flex flex-col gap-2">
+                    {p.idealFor.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-2.5 font-outfit text-[0.8rem] text-brand-black font-normal"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-pink shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-outfit text-[0.6rem] tracking-[0.22em] uppercase text-brand-pink font-semibold mb-3">
+                    Benefits
+                  </p>
+                  <ul className="list-none flex flex-col gap-2">
+                    {p.benefits.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-2.5 font-outfit text-[0.8rem] text-brand-black font-normal"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-pink shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <Link
+                href="#consultation-form"
+                className="inline-block font-outfit text-[0.68rem] tracking-[0.18em] uppercase text-brand-pink border-b border-brand-pink pb-[2px] no-underline font-medium transition-colors duration-300 hover:text-brand-pink-dark hover:border-brand-pink-dark w-fit"
+              >
+                {p.cta}
+              </Link>
+            </div>
+
+            {/* ── Image Side ── */}
+            <div className="relative w-full lg:w-1/2 min-h-40 sm:min-h-52 lg:min-h-72 overflow-hidden order-first lg:order-0">
               <Image
                 src={p.image}
                 alt={p.alt}
                 fill
-                className="object-cover object-center brightness-75 transition-all duration-700 ease-in-out lg:group-hover:opacity-0 lg:group-hover:scale-[1.04]"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-center brightness-[0.88] transition-transform duration-700 ease-in-out hover:scale-[1.03]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              {/* Directional blend toward content side */}
+              <div
+                className={`absolute inset-0 ${
+                  i % 2 === 0
+                    ? 'bg-gradient-to-l from-transparent via-transparent to-brand-off-white/50'
+                    : 'bg-gradient-to-r from-transparent via-transparent to-brand-off-white/50'
+                }`}
+              />
+              {/* Mobile bottom fade */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-off-white to-transparent lg:hidden" />
             </div>
 
-            {/* ── Permanent gradient so text is always readable ── */}
-            <div className="hidden lg:block absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-transparent pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
-
-            {/* ── Solid bg that appears on desktop hover ── */}
-            <div className="hidden lg:block absolute inset-0 bg-brand-black opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out pointer-events-none" />
-
-            {/* ── Pink accent top border on hover ── */}
-            <div className="hidden lg:block absolute top-0 left-0 right-0 h-[3px] bg-brand-pink scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
-
-            {/* ── Content ── */}
-            <div className="flex-1 bg-brand-black p-5 sm:p-7 lg:bg-transparent lg:absolute lg:inset-0 lg:p-10 lg:flex lg:flex-col lg:justify-end relative z-[1]">
-
-              {/* Always-visible header */}
-              <div>
-                <div
-                  className="font-outfit text-[2.8rem] lg:text-[4rem] font-light leading-none mb-1 transition-all duration-500 lg:group-hover:text-[2.5rem] lg:group-hover:mb-3"
-                  style={{ color: 'rgba(236,72,153,0.22)' }}
-                >
-                  {p.num}
-                </div>
-                <p className="font-outfit text-[0.62rem] tracking-[0.24em] uppercase text-brand-pink font-medium mb-2">
-                  {p.category}
-                </p>
-                <h3 className="font-outfit text-[1.1rem] sm:text-[1.25rem] lg:text-[1.4rem] font-semibold text-white leading-[1.25] mb-2">
-                  {p.name}
-                </h3>
-                <p className="font-outfit text-sm italic text-brand-pink-light font-light">
-                  {p.tagline}
-                </p>
-              </div>
-
-              {/* Expanded detail — always visible on mobile, revealed on desktop hover */}
-              <div className="overflow-hidden transition-all duration-500 ease-in-out mt-4 lg:mt-0 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-[700px] lg:group-hover:opacity-100 lg:group-hover:mt-5">
-                <p className="font-outfit text-[0.84rem] font-light leading-[1.85] text-white/90 mb-4">
-                  {p.desc}
-                </p>
-
-                <p className="font-outfit text-[0.6rem] tracking-[0.22em] uppercase text-brand-pink font-semibold mb-2">
-                  Ideal For
-                </p>
-                <ul className="list-none flex flex-col gap-1.5 mb-4">
-                  {p.idealFor.map((item) => (
-                    <li key={item} className="flex items-center gap-2 font-outfit text-[0.8rem] text-white/88 font-light">
-                      <span className="w-1.5 h-1.5 bg-brand-pink rounded-full shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="font-outfit text-[0.6rem] tracking-[0.22em] uppercase text-brand-pink font-semibold mb-2">
-                  Benefits
-                </p>
-                <ul className="list-none flex flex-col gap-1.5 mb-5">
-                  {p.benefits.map((item) => (
-                    <li key={item} className="flex items-center gap-2 font-outfit text-[0.8rem] text-white/88 font-light">
-                      <span className="w-1.5 h-1.5 bg-brand-pink rounded-full shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href="#consultation-form"
-                  className="inline-block font-outfit text-[0.68rem] tracking-[0.18em] uppercase text-brand-pink border-b border-brand-pink pb-[2px] no-underline font-medium transition-colors duration-300 hover:text-brand-pink-light hover:border-brand-pink-light"
-                >
-                  {p.cta}
-                </Link>
-              </div>
-            </div>
           </div>
         ))}
+
+        {/* Bottom border */}
+        <div className="border-t border-brand-black/10" />
       </div>
     </div>
   )

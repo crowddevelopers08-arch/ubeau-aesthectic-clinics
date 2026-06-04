@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Image from 'next/image'
 
@@ -30,24 +30,24 @@ export default function FAQ() {
   const toggle = (i: number) => setOpen(open === i ? null : i)
 
   return (
-    <section id="faq" className="bg-[#fdf9fb] px-4 sm:px-8 lg:px-20 py-14 sm:py-20 lg:py-32">
+    <section id="faq" className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Left — FAQ accordion */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+            <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
             <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
               FAQs
             </span>
           </div>
-          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-light leading-[1.15] text-brand-black mb-10 sm:mb-12">
+          <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-8">
             Frequently Asked <em className="italic text-brand-pink">Questions</em>
           </h2>
 
           <div>
             {faqs.map((faq, i) => (
-              <div key={i} className="border-b border-brand-pink/12">
+              <div key={i} className="border-b border-brand-pink/15">
                 <button
                   onClick={() => toggle(i)}
                   className={`w-full text-left py-5 sm:py-6 font-outfit text-base sm:text-[1.08rem] font-normal leading-[1.4] flex justify-between items-center gap-4 transition-colors duration-300 cursor-pointer bg-transparent border-0 outline-none ${
@@ -56,7 +56,7 @@ export default function FAQ() {
                 >
                   <span>{faq.q}</span>
                   <span
-                    className={`w-7 h-7 shrink-0 rounded-full border-[1.5px] flex items-center justify-center font-outfit font-light text-[1.2rem] leading-none transition-all duration-300 ${
+                    className={`w-7 h-7 shrink-0 rounded-full border-[1.5px] flex items-center justify-center font-outfit font-normal text-[1.2rem] leading-none transition-all duration-300 ${
                       open === i
                         ? 'bg-brand-pink text-white border-brand-pink rotate-45'
                         : 'border-brand-pink/50 text-brand-pink'
@@ -69,7 +69,7 @@ export default function FAQ() {
                   className="overflow-hidden transition-all duration-400 ease-in-out"
                   style={{ maxHeight: open === i ? '300px' : '0' }}
                 >
-                  <p className="font-outfit text-sm sm:text-[0.92rem] font-light leading-[1.95] text-brand-black/72 pb-5 sm:pb-6">
+                  <p className="font-outfit text-sm sm:text-[0.92rem] font-normal leading-[1.95] text-brand-black pb-5 sm:pb-6">
                     {faq.a}
                   </p>
                 </div>
@@ -87,14 +87,14 @@ export default function FAQ() {
             className="object-cover object-center"
             sizes="50vw"
           />
-          {/* subtle pink tint overlay */}
+          {/* warm brand tint overlay */}
           <div className="absolute inset-0 bg-brand-pink/8" />
           {/* floating badge */}
           <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm px-6 py-4 max-w-[220px]">
             <p className="font-outfit text-[0.65rem] tracking-[0.2em] uppercase text-brand-pink font-medium mb-1">
               Expert Care
             </p>
-            <p className="font-outfit text-[0.82rem] font-light text-brand-black/80 leading-[1.6]">
+            <p className="font-outfit text-[0.82rem] font-normal text-brand-black leading-[1.6]">
               Personalised skin solutions by qualified dermatologists
             </p>
           </div>

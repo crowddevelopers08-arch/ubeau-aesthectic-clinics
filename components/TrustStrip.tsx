@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useEffect, useRef, useState } from 'react'
 import FadeUp from './FadeUp'
 
@@ -47,22 +47,22 @@ function StatNum({ display, end, suffix }: { display: string; end: number | null
 
 export default function TrustStrip() {
   return (
-    <div className="bg-brand-black grid grid-cols-2 lg:grid-cols-4 items-stretch">
+    <div className="bg-white grid grid-cols-2 lg:grid-cols-4 items-stretch border-t border-b border-brand-black/8">
       {stats.map((stat, i) => (
         <FadeUp key={i} delay={i * 100} variant="fade" className="h-full">
           <div
             className={[
-              'h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-10',
-              i === 0 ? 'border-r border-white/10' : '',
-              i === 1 ? 'lg:border-r lg:border-white/10' : '',
-              i === 2 ? 'border-r border-white/10' : '',
-              i === 0 || i === 1 ? 'border-b lg:border-b-0 border-white/10' : '',
+              'h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 py-5 sm:py-7',
+              i === 0 ? 'border-r border-brand-black/8' : '',
+              i === 1 ? 'lg:border-r lg:border-brand-black/8' : '',
+              i === 2 ? 'border-r border-brand-black/8' : '',
+              i === 0 || i === 1 ? 'border-b lg:border-b-0 border-brand-black/8' : '',
             ]
               .filter(Boolean)
               .join(' ')}
           >
             <StatNum display={stat.display} end={stat.end} suffix={stat.suffix} />
-            <div className="font-outfit text-[0.62rem] sm:text-[0.68rem] tracking-widest uppercase text-white/70 leading-[1.6] font-normal">
+            <div className="font-outfit text-[0.62rem] sm:text-[0.68rem] tracking-widest uppercase text-brand-black leading-[1.6] font-normal">
               {stat.label}
             </div>
           </div>

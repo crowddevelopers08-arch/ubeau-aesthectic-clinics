@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 
 const logos = [
   { src: '/one.png',   alt: 'Celluma Light Therapy' },
@@ -26,16 +26,16 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
 
 export default function TechGrid() {
   return (
-    <div className="bg-[#faf7f2] py-14 sm:py-20 lg:py-24 overflow-hidden">
+    <div className="bg-brand-off-white py-10 sm:py-14 lg:py-20 overflow-hidden">
       <div className="text-center px-4 sm:px-8 lg:px-20">
         <div className="flex items-center justify-center gap-3 mb-3">
-          <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+          <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
           <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
             Treatment Technologies &amp; Brands
           </span>
-          <span className="w-6 sm:w-[26px] h-px bg-brand-pink shrink-0" />
+          <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
         </div>
-        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-light leading-[1.15] text-brand-black mb-10 sm:mb-14">
+        <h2 className="font-outfit text-[clamp(1.8rem,3.5vw,3.6rem)] font-normal leading-[1.15] text-brand-black mb-5 sm:mb-8">
           Powered by Globally Recognised Technologies
         </h2>
       </div>

@@ -19,11 +19,12 @@ export default function Home() {
       <main>
         <Hero />
         <TrustStrip />
+         <Results />
         <Approach />
         <Protocols />
         <WhyChoose />
         <TechGrid />
-        <Results />
+       
         <Journey />
         <Testimonials />
         <FAQ />

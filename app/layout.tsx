@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { Aboreto } from "next/font/google"
 import "./globals.css"
 
-const outfit = Outfit({
+/* ── Aboreto — maps to the same CSS variable so every
+   font-outfit utility class now renders in Aboreto ── */
+const aboreto = Aboreto({
   variable: "--font-outfit-var",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: "400",
 })
 
 export const metadata: Metadata = {
@@ -17,8 +19,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={outfit.variable}>
-      <body className="font-outfit bg-white text-brand-black overflow-x-hidden antialiased">
+    <html lang="en" className={aboreto.variable}>
+      <body className="font-outfit bg-brand-off-white text-brand-black overflow-x-hidden antialiased">
         {children}
       </body>
     </html>
