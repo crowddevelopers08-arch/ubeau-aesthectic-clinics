@@ -78,7 +78,7 @@ async function sendToTeleCRM(data: LeadInput) {
       'Lead Stage': '',
       'Lead Status': 'new',
       'Lead Request Type': 'consultation',
-      PageName: data.source || 'ubeau-aesthectic-clinics-website',
+      PageName: 'Landing page',
       State: 'Tamil Nadu',
       Age: '',
     },
