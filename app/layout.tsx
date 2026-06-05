@@ -13,6 +13,11 @@ const aboreto = Aboreto({
 export const metadata: Metadata = {
   title: "UBÊAU Advanced Aesthetics – Bhubaneswar",
   description: "Odisha's 1st Luxury Skincare & Wellness Clinic",
+  icons: {
+    icon: '/logofav.png',
+    shortcut: '/logofav.png',
+    apple: '/logofav.png',
+  },
 }
 
 export default function RootLayout({

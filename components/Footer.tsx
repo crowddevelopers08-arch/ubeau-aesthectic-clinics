@@ -1,5 +1,6 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import Image from 'next/image'
+import FadeUp from './FadeUp'
 
 const protocols = [
   'Bright Skin & Pigmentation Control',
@@ -13,8 +14,8 @@ export default function Footer() {
       <div className="px-4 sm:px-8 lg:px-20 pt-7 sm:pt-10 pb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr] gap-7 lg:gap-10 pb-6 border-b border-brand-black/10">
 
-          {/* Brand column */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          {/* ── Brand column ── */}
+          <FadeUp variant="fade" delay={0} className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/Screenshot.png"
               alt="UBÊAU Advanced Aesthetics"
@@ -27,10 +28,10 @@ export default function Footer() {
               &amp; wellness clinic. Science-backed protocols for real, lasting skin
               transformation.
             </p>
-          </div>
+          </FadeUp>
 
-          {/* Protocols */}
-          <div>
+          {/* ── Protocols column ── */}
+          <FadeUp variant="fade" delay={100}>
             <p className="font-outfit text-[0.6rem] tracking-[0.28em] uppercase text-brand-pink font-semibold mb-6">
               Protocols
             </p>
@@ -46,10 +47,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FadeUp>
 
-          {/* Contact */}
-          <div>
+          {/* ── Contact column ── */}
+          <FadeUp variant="fade" delay={200}>
             <p className="font-outfit text-[0.6rem] tracking-[0.28em] uppercase text-brand-pink font-semibold mb-6">
               Contact
             </p>
@@ -82,38 +83,42 @@ export default function Footer() {
                 </Link>
               </div>
             </address>
-          </div>
+          </FadeUp>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="font-outfit text-[0.7rem] text-brand-black font-normal">
-            © 2026 UBÊAU Advanced Aesthetics. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 flex-wrap">
-            <Link
-              href="https://instagram.com/ubeauclinic"
-              target="_blank"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
-            >
-              Instagram
-            </Link>
-            <span className="w-px h-3 bg-brand-black/15" />
-            <Link
-              href="tel:7340020073"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
-            >
-              73-400-200-73
-            </Link>
-            <span className="w-px h-3 bg-brand-black/15" />
-            <Link
-              href="/privacy-policy"
-              className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
-            >
-              Privacy Policy
-            </Link>
+        {/* ── Bottom bar ── */}
+        <FadeUp variant="fade" delay={250}>
+          <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <p className="font-outfit text-[0.7rem] text-brand-black font-normal">
+              © 2026 UBÊAU Advanced Aesthetics. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6 flex-wrap">
+              <Link
+                href="https://instagram.com/ubeauclinic"
+                target="_blank"
+                className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              >
+                Instagram
+              </Link>
+              <span className="w-px h-3 bg-brand-black/15" />
+              <Link
+                href="tel:7340020073"
+                className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              >
+                73-400-200-73
+              </Link>
+              <span className="w-px h-3 bg-brand-black/15" />
+              <Link
+                href="/privacy-policy"
+                className="font-outfit text-[0.65rem] tracking-[0.16em] uppercase text-brand-black no-underline transition-colors duration-300 hover:text-brand-pink font-normal"
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
-        </div>
+        </FadeUp>
+
       </div>
     </footer>
   )

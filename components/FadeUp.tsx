@@ -1,7 +1,7 @@
-﻿'use client'
+'use client'
 import { useEffect, useRef, ReactNode } from 'react'
 
-export type FadeVariant = 'up' | 'scale' | 'fade'
+export type FadeVariant = 'up' | 'scale' | 'fade' | 'left' | 'right'
 
 interface Props {
   children: ReactNode
@@ -30,6 +30,18 @@ const cfg: Record<FadeVariant, { opacity: string; transform: string; filter?: st
     transform: 'translateY(20px)',
     ms: 900,
   },
+  left: {
+    opacity: '0',
+    transform: 'translateX(-48px)',
+    filter: 'blur(6px)',
+    ms: 1000,
+  },
+  right: {
+    opacity: '0',
+    transform: 'translateX(48px)',
+    filter: 'blur(6px)',
+    ms: 1000,
+  },
 }
 
 export default function FadeUp({ children, delay = 0, className = '', variant = 'up' }: Props) {
@@ -42,7 +54,7 @@ export default function FadeUp({ children, delay = 0, className = '', variant = 
       ([entry]) => {
         if (entry.isIntersecting) {
           el.style.opacity = '1'
-          el.style.transform = 'translateY(0px) scale(1)'
+          el.style.transform = 'translateY(0px) translateX(0px) scale(1)'
           el.style.filter = 'blur(0px)'
           observer.unobserve(el)
         }

@@ -1,5 +1,6 @@
-﻿'use client'
+'use client'
 import { useState, useEffect, useCallback } from 'react'
+import FadeUp from './FadeUp'
 
 const testimonials = [
   {
@@ -32,7 +33,6 @@ const testimonials = [
   },
 ]
 
-/* ── Google "G" logo SVG ── */
 function GoogleIcon() {
   return (
     <svg
@@ -54,8 +54,6 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
 
   return (
     <div className="bg-white border border-brand-black/10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
-
-      {/* Stars + Google icon */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-brand-pink text-base tracking-wider">★★★★★</span>
         <div className="flex items-center gap-1.5">
@@ -66,7 +64,6 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
         </div>
       </div>
 
-      {/* Quote */}
       <div className="flex-1 mb-4">
         <p className={`font-outfit text-[0.92rem] font-normal leading-[1.8] text-brand-black ${!expanded ? 'line-clamp-3' : ''}`}>
           &ldquo;{quote}&rdquo;
@@ -79,7 +76,6 @@ function TestimonialCard({ quote, name }: { quote: string; name: string }) {
         </button>
       </div>
 
-      {/* Author — name only, no meta */}
       <div className="w-5 h-px bg-brand-pink/60 mb-3" />
       <p className="font-outfit text-[0.72rem] tracking-[0.18em] uppercase text-brand-pink font-semibold">
         {name}
@@ -99,7 +95,6 @@ export default function Testimonials() {
 
   const prev = () => setCurrent(i => (i - 1 + total) % total)
 
-  /* Auto-advance every 4 seconds */
   useEffect(() => {
     const timer = setInterval(next, 4000)
     return () => clearInterval(timer)
@@ -108,49 +103,53 @@ export default function Testimonials() {
   return (
     <section className="bg-brand-off-white px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20">
 
-      {/* Section header */}
-      <div className="flex items-center gap-3 mb-4">
-        <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
-        <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
-          What Our Clients Say
-        </span>
-      </div>
-      <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-4 sm:mb-8">
-        Stories of <em className="italic text-brand-pink">Transformation</em>
-      </h2>
+      {/* ── Section header ── */}
+      <FadeUp>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-6 sm:w-6.5 h-px bg-brand-pink shrink-0" />
+          <span className="font-outfit text-[0.65rem] tracking-[0.28em] uppercase text-brand-pink font-medium">
+            What Our Clients Say
+          </span>
+        </div>
+        <h2 className="font-outfit text-[clamp(1.5rem,3vw,3.2rem)] font-normal leading-[1.15] text-brand-black mb-4 sm:mb-8">
+          Stories of <em className="italic text-brand-pink">Transformation</em>
+        </h2>
+      </FadeUp>
 
-      {/* Mobile carousel */}
-      <div className="overflow-hidden lg:hidden">
+      {/* ── Mobile carousel ── */}
+      <FadeUp variant="fade" delay={150} className="lg:hidden">
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {testimonials.map((t, i) => (
+              <div key={i} className="w-full shrink-0">
+                <TestimonialCard {...t} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </FadeUp>
+
+      {/* ── Desktop marquee ── */}
+      <FadeUp variant="fade" delay={150} className="hidden lg:block">
         <div
-          className="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(-${current * 100}%)` }}
+          className="overflow-hidden"
+          style={{ maskImage: 'linear-gradient(to right, transparent, black 7%, black 93%, transparent)' }}
         >
-          {testimonials.map((t, i) => (
-            <div key={i} className="w-full shrink-0">
-              <TestimonialCard {...t} />
-            </div>
-          ))}
+          <div className="flex flex-nowrap w-max animate-marquee-left hover:[animation-play-state:paused]">
+            {marqueeTestimonials.map((t, i) => (
+              <div key={`${t.name}-${i}`} className="w-136 shrink-0 px-2">
+                <TestimonialCard {...t} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </FadeUp>
 
-      {/* Desktop marquee */}
-      <div
-        className="hidden lg:block overflow-hidden"
-        style={{ maskImage: 'linear-gradient(to right, transparent, black 7%, black 93%, transparent)' }}
-      >
-        <div className="flex flex-nowrap w-max animate-marquee-left hover:[animation-play-state:paused]">
-          {marqueeTestimonials.map((t, i) => (
-            <div key={`${t.name}-${i}`} className="w-[34rem] shrink-0 px-2">
-              <TestimonialCard {...t} />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile controls */}
+      {/* ── Mobile controls ── */}
       <div className="flex items-center justify-between mt-5 lg:hidden">
-
-        {/* Dot indicators */}
         <div className="flex items-center gap-1.5 flex-wrap">
           {testimonials.map((_, i) => (
             <button
@@ -166,7 +165,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Arrow buttons */}
         <div className="flex gap-2 shrink-0">
           <button
             onClick={prev}

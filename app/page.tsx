@@ -6,6 +6,7 @@ import Protocols from '@/components/Protocols'
 import WhyChoose from '@/components/WhyChoose'
 import TechGrid from '@/components/TechGrid'
 import Results from '@/components/Results'
+import VideoCarousel from '@/components/VideoCarousel'
 import Journey from '@/components/Journey'
 import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <TrustStrip />
          <Results />
+        <VideoCarousel />
         <Approach />
         <Protocols />
         <WhyChoose />
