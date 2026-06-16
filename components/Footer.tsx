@@ -67,13 +67,13 @@ export default function Footer() {
                 >
                   73-400-200-73
                 </Link>
-                <Link
+                {/* <Link
                   href="https://ubeauclinic.com"
                   target="_blank"
                   className="font-outfit text-[0.83rem] font-normal text-brand-pink no-underline transition-colors duration-300 hover:text-brand-pink-dark"
                 >
                   ubeauclinic.com
-                </Link>
+                </Link> */}
                 <Link
                   href="https://instagram.com/ubeauclinic"
                   target="_blank"

@@ -7,7 +7,7 @@ const navLinks = [
   ['#approach', 'Approach'],
   ['#protocols', 'Protocols'],
   ['#doctors', 'Why UBÊAU'],
-  ['#journey', 'Process'],
+  ['#Skincare-Journey', 'Skincare Journey'],
   ['#faq', 'FAQ'],
 ]
 

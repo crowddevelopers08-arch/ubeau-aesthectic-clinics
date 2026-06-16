@@ -27,7 +27,7 @@ const steps = [
 export default function Journey() {
   return (
     <section
-      id="journey"
+      id="Skincare-Journey"
       className="relative overflow-hidden px-4 sm:px-8 lg:px-20 py-7 sm:py-14 lg:py-20"
       style={{ background: 'linear-gradient(135deg, #ffefe1 0%, #f5dfc8 100%)' }}
     >
@@ -75,7 +75,7 @@ export default function Journey() {
                   />
                 </div>
 
-                <h3 className="font-outfit text-base sm:text-[1.1rem] font-semibold text-brand-black leading-[1.3]">
+                <h3 className="font-subheading text-base sm:text-[1.1rem] font-semibold text-brand-black leading-[1.3]">
                   {step.title}
                 </h3>
               </div>

@@ -17,7 +17,7 @@ export default function Approach() {
       />
       <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-white/95 backdrop-blur-sm px-5 py-3">
         <p className="font-outfit text-[0.62rem] tracking-[0.22em] uppercase text-brand-pink font-medium">
-          UBÊAU Aesthetic Clinic
+          UBÊAU ADVANCED AESTHETIC CLINIC
         </p>
       </div>
     </div>

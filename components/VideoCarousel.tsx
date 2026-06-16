@@ -3,6 +3,11 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import FadeUp from './FadeUp'
 
 const videos = [
+  'https://res.cloudinary.com/dvj4ktxgl/video/upload/v1781589274/Healthy_glowing_skin_often_begins_with_trust_consistency_and_the_right_guidance.For_Ms._Madhu_f2v7rm.mp4',
+  'https://res.cloudinary.com/dvj4ktxgl/video/upload/v1781589265/Ub%C3%AAau_s_Sculpt_Facial_Ft_Forma_by_inmodeaesthetics_is_not_just_a_facial._It_s_a_curated_skin_tr_rjl97j.mp4',
+  'https://res.cloudinary.com/dvj4ktxgl/video/upload/v1781589266/Mr._Mukti_Kanta_Mishra_chose_UB%C3%8AAU_for_advanced_skin_rejuvenation_and_we_re_delighted_to_be_part_y3ykih.mp4',
+  'https://res.cloudinary.com/dvj4ktxgl/video/upload/v1781589261/Your_skin_concerns_deserve_a_treatment_that_is_precise_safe_and_effective._UB%C3%8AAU_s_FDA-approve_brsaaa.mp4',
+  'https://res.cloudinary.com/dvj4ktxgl/video/upload/v1781589253/The_best_skincare_advice_youll_get_in_your_30s_Stop_settling_for_surface-level_solutions._UB%C3%8AAU_uuaddr.mp4',
   'https://video.wixstatic.com/video/67c604_f36a8bbe043c4a1ca2db54803b2b6dc4/480p/mp4/file.mp4',
   'https://video.wixstatic.com/video/67c604_21886c979d71499581025eb76b26efc2/480p/mp4/file.mp4',
   'https://video.wixstatic.com/video/67c604_8368cdac5ad54627a48dec421a30f390/480p/mp4/file.mp4',
@@ -39,7 +44,7 @@ function useFadeIn(delay = 0) {
 }
 
 export default function VideoCarousel() {
-  const [current, setCurrent] = useState(0)
+  const [rawCurrent, setRawCurrent] = useState(0)
   const [isLg, setIsLg] = useState(false)
   const [playing, setPlaying] = useState<number | null>(null)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
@@ -56,17 +61,13 @@ export default function VideoCarousel() {
 
   const perView = isLg ? PER_VIEW_LG : PER_VIEW_SM
   const maxIndex = videos.length - perView
-
-  /* Clamp current when viewport changes */
-  useEffect(() => {
-    setCurrent(c => Math.min(c, maxIndex))
-  }, [maxIndex])
+  const current = Math.min(rawCurrent, maxIndex)
 
   const next = useCallback(() => {
-    setCurrent(c => Math.min(c + 1, maxIndex))
+    setRawCurrent((c: number) => Math.min(c + 1, maxIndex))
   }, [maxIndex])
 
-  const prev = () => setCurrent(c => Math.max(c - 1, 0))
+  const prev = () => setRawCurrent((c: number) => Math.max(c - 1, 0))
 
   /* ── Play / pause individual video ── */
   function togglePlay(idx: number) {
@@ -197,7 +198,7 @@ export default function VideoCarousel() {
           {Array.from({ length: dotCount }).map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
+              onClick={() => setRawCurrent(i)}
               aria-label={`Go to video set ${i + 1}`}
               className={`rounded-full transition-all duration-300 ${
                 i === current

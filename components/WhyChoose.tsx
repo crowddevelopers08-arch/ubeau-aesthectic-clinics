@@ -51,7 +51,7 @@ function DoctorCard({
       <div className="flex flex-col p-5 flex-1">
         <span className="w-8 h-px bg-brand-pink block mb-4" />
 
-        <h3 className="font-outfit text-[1.1rem] sm:text-[1.2rem] font-semibold text-brand-black leading-[1.2] mb-1">
+        <h3 className="font-subheading text-[1.1rem] sm:text-[1.2rem] font-semibold text-brand-black leading-[1.2] mb-1">
           {name}
         </h3>
         <p className="font-outfit text-[0.62rem] tracking-[0.18em] uppercase text-brand-pink font-medium mb-1">

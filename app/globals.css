@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-outfit: var(--font-outfit-var);
+  --font-outfit: var(--font-playfair-var);
+  --font-subheading: var(--font-playfair-var);
 
   /* ── Brand colours — sourced from ubeauclinic.com ── */
   --color-brand-pink:       #865821;   /* main accent: warm brown-gold  */
@@ -80,4 +81,31 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Global heading typography
+   These rules are intentionally written OUTSIDE @layer so they
+   sit in the unlayered cascade and always override Tailwind
+   utility classes (which live in @layer utilities).
+   ───────────────────────────────────────────────────────────────── */
+
+/* Headings — Aboreto / wfont stack
+   !important is required to beat the .font-outfit class selector (0,1,0 > 0,0,1) */
+h1,
+h2 {
+  font-family: wfont_2da655_cbea606264264e4dbe90bda76246af21,
+               wf_cbea606264264e4dbe90bda76,
+               orig_aboreto_regular,
+               var(--font-aboreto-var) !important;
+}
+
+/* Subheadings — Playfair Display */
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display",
+               var(--font-playfair-var),
+               serif !important;
 }

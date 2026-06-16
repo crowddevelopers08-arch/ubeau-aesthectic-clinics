@@ -76,7 +76,7 @@ export default function Protocols() {
                 <p className="font-outfit text-[0.62rem] tracking-[0.24em] uppercase text-brand-pink font-medium mb-2">
                   {p.category}
                 </p>
-                <h3 className="font-outfit text-[1.3rem] sm:text-[1.55rem] lg:text-[1.75rem] font-semibold text-brand-black leading-tight mb-3">
+                <h3 className="font-subheading text-[1.3rem] sm:text-[1.55rem] lg:text-[1.75rem] font-semibold text-brand-black leading-tight mb-3">
                   {p.name}
                 </h3>
                 <p className="font-outfit text-sm italic text-brand-pink font-normal mb-5">
