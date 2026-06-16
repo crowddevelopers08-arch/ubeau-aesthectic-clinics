@@ -10,6 +10,11 @@ const images = [
   { src: 'https://static.wixstatic.com/media/0e4137_36f71856069c433d86f8ecd6c2e28a2b~mv2.jpg/v1/fill/w_370,h_371,q_90,enc_avif,quality_auto/0e4137_36f71856069c433d86f8ecd6c2e28a2b~mv2.jpg', alt: 'Skin transformation result 4' },
   { src: 'https://static.wixstatic.com/media/0e4137_9fdbbc5b0308416b82bc970fc50a4a28~mv2.jpg/v1/fill/w_371,h_371,q_90,enc_avif,quality_auto/0e4137_9fdbbc5b0308416b82bc970fc50a4a28~mv2.jpg', alt: 'Skin transformation result 5' },
   { src: 'https://static.wixstatic.com/media/0e4137_bf92e5d77d5847029ab1fbe813e5e94f~mv2.jpg/v1/fill/w_370,h_371,q_90,enc_avif,quality_auto/0e4137_bf92e5d77d5847029ab1fbe813e5e94f~mv2.jpg', alt: 'Skin transformation result 6' },
+  { src: 'https://res.cloudinary.com/dvj4ktxgl/image/upload/v1781602663/InShot_20240813_194320078_wf99ul.jpg', alt: 'Skin transformation result 7' },
+  { src: 'https://res.cloudinary.com/dvj4ktxgl/image/upload/v1781602661/InShot_20240813_192121899_hmkdcm.jpg', alt: 'Skin transformation result 8' },
+  // { src: 'https://res.cloudinary.com/dvj4ktxgl/image/upload/v1781602661/InShot_20240813_170553101_memxig.jpg', alt: 'Skin transformation result 9' },
+  { src: 'https://res.cloudinary.com/dvj4ktxgl/image/upload/v1781602661/InShot_20240813_195717084_keqxba.jpg', alt: 'Skin transformation result 10' },
+  { src: 'https://res.cloudinary.com/dvj4ktxgl/image/upload/v1781602661/InShot_20240418_121336237_deklwa.jpg', alt: 'Skin transformation result 11' },
 ]
 
 export default function Results() {

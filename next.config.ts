@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/dvj4ktxgl/image/upload/**",
+      },
+      {
+        protocol: "https",
         hostname: "static.wixstatic.com",
       },
     ],
