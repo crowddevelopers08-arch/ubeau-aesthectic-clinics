@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    title: '1. Information We Collect',
+    title: '1. Informations We Collect',
     body: `When you submit a consultation request or contact us through our website, we collect the following information:
 
 • Full name
