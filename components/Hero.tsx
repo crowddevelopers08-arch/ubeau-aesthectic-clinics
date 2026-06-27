@@ -102,7 +102,7 @@ export default function Hero() {
                 href="#protocols"
                 className="inline-block text-center bg-transparent text-white font-outfit text-[0.75rem] tracking-[0.14em] uppercase px-8 sm:px-[2.6rem] py-4 border-2 border-white/55 no-underline font-medium transition-all duration-300 hover:border-[#ffefe1] hover:text-[#ffefe1]"
               >
-                Explore Skin Protocol
+                Explore Skin Protocols
               </Link>
             </div>
           </div>
